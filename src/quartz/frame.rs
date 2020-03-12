@@ -8,7 +8,7 @@ pub struct Frame {
 
 impl Frame {
     pub unsafe fn new(surface: IOSurfaceRef) -> Frame {
-        std::io::println("lalala");
+        println!("lalala");
         CFRetain(surface);
         IOSurfaceIncrementUseCount(surface);
 
