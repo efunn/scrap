@@ -9,7 +9,7 @@ pub struct Frame {
 
 impl Frame {
     pub unsafe fn new(surface: IOSurfaceRef) -> Frame {
-        io::stdout().write_all(b"hello world")?;
+        io::stdout().write_all(b"hello world");
         CFRetain(surface);
         IOSurfaceIncrementUseCount(surface);
 
