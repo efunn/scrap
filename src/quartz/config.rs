@@ -67,7 +67,7 @@ impl Default for Config {
             cursor: false,
             letterbox: true,
             throttle: 0.0,
-            queue_length: 3
+            queue_length: 8
         }
     }
 }
