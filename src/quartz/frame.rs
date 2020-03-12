@@ -1,5 +1,6 @@
 use super::ffi::*;
 use std::{ops, ptr, slice};
+use std::io::{self, Write};
 
 pub struct Frame {
     surface: IOSurfaceRef,
@@ -8,6 +9,7 @@ pub struct Frame {
 
 impl Frame {
     pub unsafe fn new(surface: IOSurfaceRef) -> Frame {
+        io::stdout().write_all(b"hello world")?;
         CFRetain(surface);
         IOSurfaceIncrementUseCount(surface);
 
