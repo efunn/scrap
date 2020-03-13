@@ -38,6 +38,7 @@ impl Capturer {
     }
 
     pub fn frame<'a>(&'a mut self) -> io::Result<Frame<'a>> {
+        println!("CALLING FRAME");
         match self.frame.try_lock() {
             Ok(mut handle) => {
                 let mut frame = None;

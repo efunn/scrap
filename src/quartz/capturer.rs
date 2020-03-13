@@ -29,7 +29,6 @@ impl Capturer {
             ConcreteBlock::new(move |status, _, surface, _| {
                 use self::CGDisplayStreamFrameStatus::*;
                 if status == FrameComplete {
-                    println!("status == FrameComplete");
                     handler(unsafe { Frame::new(surface) });
                 }
             }).copy();
