@@ -8,6 +8,7 @@ pub struct Frame {
 
 impl Frame {
     pub unsafe fn new(surface: IOSurfaceRef) -> Frame {
+        println!("CFRetain(surface)")
         CFRetain(surface);
         IOSurfaceIncrementUseCount(surface);
 
@@ -35,6 +36,8 @@ impl ops::Deref for Frame {
 
 impl Drop for Frame {
     fn drop(&mut self) {
+        println!("Frame dropping")
+        println!("              ")
         unsafe {
             IOSurfaceUnlock(
                 self.surface,
